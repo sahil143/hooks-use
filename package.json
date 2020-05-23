@@ -1,0 +1,16 @@
+{
+  "name": "hooks-use",
+  "version": "0.0.1",
+  "description": "Few hooks I use in my day to day react projects.",
+  "main": "index.ts",
+  "repository": "https://github.com/sahil143/hooks-use",
+  "author": "Sahil Budhwar (sahil143)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
+  }
+}
