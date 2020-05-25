@@ -1,0 +1,85 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "consistent-return": 0,
+        "consistent-this": [1, "that"],
+        "curly": [2, "all"],
+        "default-case": [2],
+        "dot-notation": [2],
+        "no-multiple-empty-lines": [2, { "max": 2, "maxEOF": 0 }],
+        "eqeqeq": [2, "allow-null"],
+        "guard-for-in": 2,
+        "max-nested-callbacks": [1, 4],
+        "no-alert": 2,
+        "no-caller": 2,
+        "no-console": 2,
+        "no-constant-condition": 2,
+        "no-debugger": 2,
+        "no-else-return": ["error"],
+        "no-irregular-whitespace": ["error"],
+        "no-shadow": ["error"],
+        "no-underscore-dangle": 0,
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { "varsIgnorePattern": "React", "args": "after-used" }
+        ],
+        "@typescript-eslint/no-use-before-define": 2,
+        "@typescript-eslint/no-explicit-any": 0,
+        "no-var": 2,
+        "object-shorthand": ["error", "properties"],
+        "prefer-const": ["error", { "destructuring": "all" }],
+        "prefer-template": 2,
+        "radix": 2,
+        "react/no-string-refs": 1,
+        "react/no-unknown-property": "error",
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/display-name": 0,
+        "react/no-unescaped-entities": 0,
+        "require-atomic-updates": 0
+    }
+}

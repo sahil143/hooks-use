@@ -6,11 +6,24 @@
   "repository": "https://github.com/sahil143/hooks-use",
   "author": "Sahil Budhwar (sahil143)",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "yarn lint --fix",
+    "clean": "rimraf dist"
+  },
   "devDependencies": {
     "@types/react": "^16.9.35",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "rimraf": "^3.0.2",
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "tslib": "^2.0.0"
   }
 }

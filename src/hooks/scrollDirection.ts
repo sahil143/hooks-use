@@ -12,7 +12,7 @@ export const getScrollDirection = (
   currentScrollTop: number,
   scrollHeight: number,
   clientHeight: number,
-) => {
+):ScrollDirection => {
   let direction;
   if (scrollHeight - currentScrollTop === clientHeight) {
     direction = ScrollDirection.scrolledToBottom;
@@ -39,7 +39,7 @@ export const useScrollDirection = (): [ScrollDirection | null, (event: Event) =>
           scrollHeight,
           clientHeight,
         );
-        if (direction && direction !== scrollDirection) setScrollDirection(direction);
+        if (direction && direction !== scrollDirection) {setScrollDirection(direction);}
       }
       scrollPosition.current = scrollTop;
     },

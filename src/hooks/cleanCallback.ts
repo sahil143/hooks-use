@@ -1,7 +1,8 @@
 import { useRef, useCallback } from 'react';
+import { Callback } from '../types';
 
-export default function useCleanCallback<T extends (...args: any[]) => any>(rawCallback: T) {
-  const cleanupRef = useRef<(() => any) | null>(null);
+export default function useCleanCallback<T extends Callback>(rawCallback: T): Callback {
+  const cleanupRef = useRef<(Callback| null)>(null);
   const callback = useCallback<T>(
     ((node) => {
       if (cleanupRef.current) {
