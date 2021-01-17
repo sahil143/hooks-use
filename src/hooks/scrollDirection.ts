@@ -11,9 +11,9 @@ export const getScrollDirection = (
   prevScrollTop: number,
   currentScrollTop: number,
   scrollHeight: number,
-  clientHeight: number,
-):ScrollDirection => {
-  let direction;
+  clientHeight: number
+): ScrollDirection | null => {
+  let direction: ScrollDirection | null = null;
   if (scrollHeight - currentScrollTop === clientHeight) {
     direction = ScrollDirection.scrolledToBottom;
   } else if (currentScrollTop === 0) {
@@ -26,24 +26,32 @@ export const getScrollDirection = (
   return direction;
 };
 
-export const useScrollDirection = (): [ScrollDirection | null, (event: Event) => void] => {
+export const useScrollDirection = (): [
+  ScrollDirection | null,
+  (event: Event) => void
+] => {
   const scrollPosition = React.useRef<number | null>(null);
-  const [scrollDirection, setScrollDirection] = React.useState<ScrollDirection | null>(null);
+  const [
+    scrollDirection,
+    setScrollDirection,
+  ] = React.useState<ScrollDirection | null>(null);
   const handleScroll = React.useCallback(
-    (event) => {
+    event => {
       const { scrollHeight, scrollTop, clientHeight } = event.target;
       if (scrollPosition.current !== null) {
         const direction = getScrollDirection(
           scrollPosition.current,
           scrollTop,
           scrollHeight,
-          clientHeight,
+          clientHeight
         );
-        if (direction && direction !== scrollDirection) {setScrollDirection(direction);}
+        if (direction && direction !== scrollDirection) {
+          setScrollDirection(direction);
+        }
       }
       scrollPosition.current = scrollTop;
     },
-    [scrollDirection],
+    [scrollDirection]
   );
 
   return [scrollDirection, handleScroll];

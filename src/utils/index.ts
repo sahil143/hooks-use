@@ -5,12 +5,14 @@ export function debounce<T extends Callback>(
   wait: number,
   immediate?: boolean
 ): () => void {
-  let timeout: number | undefined;
+  let timeout: any;
 
-  return function executedFunction(...args): void {
-    // eslint-disable-next-line
+  return function executedFunction(
+    this: typeof executedFunction,
+    ...args
+  ): void {
     const context = this;
-    const later = function () {
+    const later = function() {
       timeout = undefined;
       if (!immediate) {
         func.apply(context, args);

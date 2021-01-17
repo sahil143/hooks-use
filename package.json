@@ -1,29 +1,59 @@
 {
-  "name": "hooks-use",
-  "version": "0.0.1",
-  "description": "Few hooks I use in my day to day react projects.",
-  "main": "index.ts",
-  "repository": "https://github.com/sahil143/hooks-use",
-  "author": "Sahil Budhwar (sahil143)",
+  "version": "0.1.0",
   "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "yarn lint --fix",
-    "clean": "rimraf dist"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "hooks-use",
+  "author": "Sahil Budhwar",
+  "module": "dist/hooks-use.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/hooks-use.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/hooks-use.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@types/react": "^16.9.35",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
-    "eslint": "^7.1.0",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.2",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.9.3"
+    "@types/react": "^17.0.0",
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "husky": "^4.3.8",
+    "size-limit": "^4.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "tslib": "^2.0.0"
+    "react": "^17.0.1"
   }
 }

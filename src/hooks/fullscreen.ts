@@ -45,34 +45,46 @@ const ms: FullScreenAPI = {
   fullscreenerror: 'msfullscreenerror',
 };
 
+interface DocumentType extends Document {
+  [key: string]: any;
+}
+
+const domDocument = document as DocumentType;
+
 const allPrefixes: FullScreenAPI[] = [spec, moz, webkit, ms];
 
 const nativeAPI: FullScreenAPI =
-  (function(doc) {
+  (function(doc: DocumentType) {
     return allPrefixes.find((x: FullScreenAPI) => !!doc[x.fullscreenEnabled]);
-  })(document) ?? spec;
+  })(domDocument) ?? spec;
 
 export const useFullscreen = <T extends HTMLElement>(): [
   boolean,
   (node: T) => void,
   () => void,
-  boolean,
+  boolean
 ] => {
   const [isFullscreen, setIsFullscreen] = React.useState<boolean>(false);
   const fullscreenRef = React.useRef<boolean>(isFullscreen);
   fullscreenRef.current = isFullscreen;
   const elementRef = React.useRef<HTMLElement>();
 
-  const listener = React.useCallback((event) => {
-    setIsFullscreen(document[nativeAPI.fullscreenElement] === event.target);
+  const listener = React.useCallback(event => {
+    setIsFullscreen(domDocument[nativeAPI.fullscreenElement] === event.target);
   }, []);
 
   const targetCallbackRef = React.useCallback(
     (node: T) => {
-      if (document[nativeAPI.fullscreenEnabled]) {
+      if (domDocument[nativeAPI.fullscreenEnabled]) {
         if (elementRef.current && elementRef.current !== node) {
-          elementRef.current.removeEventListener(nativeAPI.fullscreenchange, listener);
-          elementRef.current.removeEventListener(nativeAPI.fullscreenerror, listener);
+          elementRef.current.removeEventListener(
+            nativeAPI.fullscreenchange,
+            listener
+          );
+          elementRef.current.removeEventListener(
+            nativeAPI.fullscreenerror,
+            listener
+          );
         }
         if (node != null) {
           elementRef.current = node;
@@ -81,14 +93,14 @@ export const useFullscreen = <T extends HTMLElement>(): [
         }
       }
     },
-    [listener],
+    [listener]
   );
 
   const fullscreenToggleCallback = React.useCallback(() => {
-    if (elementRef.current && document[nativeAPI.fullscreenEnabled]) {
+    if (elementRef.current && domDocument[nativeAPI.fullscreenEnabled]) {
       fullscreenRef.current
-        ? document[nativeAPI.exitFullscreen]()
-        : elementRef.current[nativeAPI.requestFullscreen]();
+        ? domDocument[nativeAPI.exitFullscreen]()
+        : (elementRef.current as any)[nativeAPI.requestFullscreen]();
     }
   }, []);
 
@@ -96,6 +108,6 @@ export const useFullscreen = <T extends HTMLElement>(): [
     isFullscreen,
     targetCallbackRef,
     fullscreenToggleCallback,
-    document[nativeAPI.fullscreenEnabled],
+    domDocument[nativeAPI.fullscreenEnabled],
   ];
 };
