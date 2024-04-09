@@ -1,0 +1,16 @@
+{
+  "name": "web-app",
+  "version": "0.0.1",
+  "description": "This is an example app for lib",
+  "author": "sahil143",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "typescript": "^5.4.4"
+  }
+}

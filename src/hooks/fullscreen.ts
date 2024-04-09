@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 type FullScreenAPI = {
   requestFullscreen: string;
@@ -10,39 +10,39 @@ type FullScreenAPI = {
 };
 
 const spec: FullScreenAPI = {
-  requestFullscreen: 'requestFullscreen',
-  exitFullscreen: 'exitFullscreen',
-  fullscreenElement: 'fullscreenElement',
-  fullscreenEnabled: 'fullscreenEnabled',
-  fullscreenchange: 'fullscreenchange',
-  fullscreenerror: 'fullscreenerror',
+  requestFullscreen: "requestFullscreen",
+  exitFullscreen: "exitFullscreen",
+  fullscreenElement: "fullscreenElement",
+  fullscreenEnabled: "fullscreenEnabled",
+  fullscreenchange: "fullscreenchange",
+  fullscreenerror: "fullscreenerror",
 };
 
 const moz: FullScreenAPI = {
-  requestFullscreen: 'mozRequestFullscreen',
-  exitFullscreen: 'mozExitFullscreen',
-  fullscreenElement: 'mozFullscreenElement',
-  fullscreenEnabled: 'mozFullscreenEnabled',
-  fullscreenchange: 'mozfullscreenchange',
-  fullscreenerror: 'mozfullscreenerror',
+  requestFullscreen: "mozRequestFullscreen",
+  exitFullscreen: "mozExitFullscreen",
+  fullscreenElement: "mozFullscreenElement",
+  fullscreenEnabled: "mozFullscreenEnabled",
+  fullscreenchange: "mozfullscreenchange",
+  fullscreenerror: "mozfullscreenerror",
 };
 
 const webkit: FullScreenAPI = {
-  requestFullscreen: 'webkitRequestFullscreen',
-  exitFullscreen: 'webkitExitFullscreen',
-  fullscreenElement: 'webkitFullscreenElement',
-  fullscreenEnabled: 'webkitFullscreenEnabled',
-  fullscreenchange: 'webkitfullscreenchange',
-  fullscreenerror: 'webkitfullscreenerror',
+  requestFullscreen: "webkitRequestFullscreen",
+  exitFullscreen: "webkitExitFullscreen",
+  fullscreenElement: "webkitFullscreenElement",
+  fullscreenEnabled: "webkitFullscreenEnabled",
+  fullscreenchange: "webkitfullscreenchange",
+  fullscreenerror: "webkitfullscreenerror",
 };
 
 const ms: FullScreenAPI = {
-  requestFullscreen: 'msRequestFullscreen',
-  exitFullscreen: 'msExitFullscreen',
-  fullscreenElement: 'msFullscreenElement',
-  fullscreenEnabled: 'msFullscreenEnabled',
-  fullscreenchange: 'msfullscreenchange',
-  fullscreenerror: 'msfullscreenerror',
+  requestFullscreen: "msRequestFullscreen",
+  exitFullscreen: "msExitFullscreen",
+  fullscreenElement: "msFullscreenElement",
+  fullscreenEnabled: "msFullscreenEnabled",
+  fullscreenchange: "msfullscreenchange",
+  fullscreenerror: "msfullscreenerror",
 };
 
 interface DocumentType extends Document {
@@ -54,7 +54,7 @@ const domDocument = document as DocumentType;
 const allPrefixes: FullScreenAPI[] = [spec, moz, webkit, ms];
 
 const nativeAPI: FullScreenAPI =
-  (function(doc: DocumentType) {
+  (function (doc: DocumentType) {
     return allPrefixes.find((x: FullScreenAPI) => !!doc[x.fullscreenEnabled]);
   })(domDocument) ?? spec;
 
@@ -62,14 +62,14 @@ export const useFullscreen = <T extends HTMLElement>(): [
   boolean,
   (node: T) => void,
   () => void,
-  boolean
+  boolean,
 ] => {
   const [isFullscreen, setIsFullscreen] = React.useState<boolean>(false);
   const fullscreenRef = React.useRef<boolean>(isFullscreen);
   fullscreenRef.current = isFullscreen;
   const elementRef = React.useRef<HTMLElement>();
 
-  const listener = React.useCallback(event => {
+  const listener = React.useCallback((event: Event) => {
     setIsFullscreen(domDocument[nativeAPI.fullscreenElement] === event.target);
   }, []);
 
@@ -79,11 +79,11 @@ export const useFullscreen = <T extends HTMLElement>(): [
         if (elementRef.current && elementRef.current !== node) {
           elementRef.current.removeEventListener(
             nativeAPI.fullscreenchange,
-            listener
+            listener,
           );
           elementRef.current.removeEventListener(
             nativeAPI.fullscreenerror,
-            listener
+            listener,
           );
         }
         if (node != null) {
@@ -93,7 +93,7 @@ export const useFullscreen = <T extends HTMLElement>(): [
         }
       }
     },
-    [listener]
+    [listener],
   );
 
   const fullscreenToggleCallback = React.useCallback(() => {
