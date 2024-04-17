@@ -1,5 +1,5 @@
 {
-  "name": "app-name",
+  "name": "hooks-use",
   "version": "0.0.1",
   "description": "The starter lib and app combo created using rollup",
   "source": "src/index.ts",

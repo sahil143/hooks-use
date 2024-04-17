@@ -1,4 +1,4 @@
-name: app-name CI
+name: Hooks use CI
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: app-name CD
+name: Hooks use CD
 
 on:
   push:
