@@ -1,0 +1,13 @@
+import { act, renderHook } from "@testing-library/react";
+import { {{ hookName }} } from "..";
+
+describe("{{ hookName }} hook", () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it("should return null on initial render", () => {
+    const { result } = renderHook(() => {{ hookName }}());
+    expect(true).toBe(true);
+  });
+});

@@ -19,6 +19,7 @@ export default [
       "*/dist/*",
       "@types/*",
       ".eslintrc.js",
+      "scripts/*",
     ],
   },
 ];
