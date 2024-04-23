@@ -1,0 +1,28 @@
+import * as React from "react";
+import { useEvent } from "../useEvent";
+
+/**
+ * A custom hook that schedules repeated execution of `callback` every `delay` milliseconds using setInterval.
+ *
+ * @param callback {Function} The function to call when the timer elapses.
+ * @param delay {number} The number of milliseconds to wait before calling the `callback`
+ * @returns {() => void} Callback to cancel the Interval set by setInterval
+ */
+const useInterval = (callback: () => void, delay: number) => {
+  const intervalId = React.useRef<number>();
+  const intervalCallback = useEvent(callback);
+
+  const handleClearInterval = React.useCallback(() => {
+    clearInterval(intervalId.current);
+  }, []);
+
+  React.useEffect(() => {
+    intervalId.current = setInterval(intervalCallback, delay);
+
+    return handleClearInterval;
+  }, [delay, handleClearInterval]);
+
+  return handleClearInterval;
+};
+
+export default useInterval;

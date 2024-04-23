@@ -10,3 +10,5 @@ export * from "./usePrevious";
 export * from "./useToggle";
 export * from "./usePreferredLanguage";
 export * from "./useCopyToClipboard";
+export * from "./useInterval";
+export * from "./useEvent";
