@@ -2,7 +2,9 @@
 
 This React hook allows you to dynamically update the title of a webpage based on a specified `title` string.
 
-#### Usage Example:
+#### Signature
+
+## Usage
 
 ```jsx
 const App = () => {

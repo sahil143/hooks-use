@@ -1,4 +1,4 @@
-### useToggle
+# useToggle
 
 This React hook is used to toggle a boolean state value.
 
@@ -12,7 +12,7 @@ useToggle(
 
 * `initialValue` (optional): The initial boolean state value. Defaults to true.
 
-Usage Example:
+## Usage
 
 ```
 const [state, toggleState] = useToggle();

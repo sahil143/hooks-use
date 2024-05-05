@@ -1,4 +1,4 @@
-### useDefault
+# useDefault
 
 This React hook is used to manage state with a default value.
 
@@ -14,7 +14,7 @@ useDefault<T>(
 * `initialValue`: The initial state value.
 * `defaultValue` (optional): The default value to be returned if the updated state is undefined or null. If not provided, defaults to the initialValue.
 
-#### Usage
+## Usage
 
 ```jsx
 

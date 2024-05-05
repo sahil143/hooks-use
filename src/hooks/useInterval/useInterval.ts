@@ -8,7 +8,7 @@ import { useEvent } from "../useEvent";
  * @param delay {number} The number of milliseconds to wait before calling the `callback`
  * @returns {() => void} Callback to cancel the Interval set by setInterval
  */
-const useInterval = (callback: () => void, delay: number) => {
+export const useInterval = (callback: () => void, delay: number) => {
   const intervalId = React.useRef<number>();
   const intervalCallback = useEvent(callback);
 
@@ -24,5 +24,3 @@ const useInterval = (callback: () => void, delay: number) => {
 
   return handleClearInterval;
 };
-
-export default useInterval;

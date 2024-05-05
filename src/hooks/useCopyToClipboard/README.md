@@ -1,4 +1,4 @@
-## useCopyToClipboard Hook
+# useCopyToClipboard
 
 The `useCopyToClipboard` hook provides functionality to copy text to the clipboard using the Clipboard API. It returns the copied text and a function to copy text to the clipboard. The function returns a Promise that resolves to `true` if the text is copied successfully and `false` otherwise.
 
@@ -23,7 +23,7 @@ const useCopyToClipboard: () => [
 ];
 ```
 
-#### Usage
+## Usage
 
 ```ts
 const [copiedText, copyToClipboard] = useCopyToClipboard();

@@ -1,1 +1,1 @@
-export { default as usePreferredLanguage } from "./usePreferredLanguage";
+export * from "./usePreferredLanguage";

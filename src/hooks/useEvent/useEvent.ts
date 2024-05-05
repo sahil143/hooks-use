@@ -2,7 +2,7 @@ import * as React from "react";
 
 /**
  * Custom hook that lets you define event handlers that can read the latest props/state but have always stable function identity.
- * @param callback {Function}
+ * @param {Function} [callback]
  * @returns {Function} A function whose reference is not changed but get updated value everytime it executes.
  *
  * @example
@@ -15,7 +15,7 @@ import * as React from "react";
  */
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-const useEvent = <C extends Function>(callback: C) => {
+export const useEvent = <C extends Function>(callback: C) => {
   const callbackRef = React.useRef<C>(callback);
   // This hook will run before layout effect
   React.useInsertionEffect(() => {
@@ -25,5 +25,3 @@ const useEvent = <C extends Function>(callback: C) => {
     return callbackRef.current(...args);
   }, []);
 };
-
-export default useEvent;

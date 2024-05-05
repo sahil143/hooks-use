@@ -1,4 +1,4 @@
-## usePreferredLanguage Hook
+# usePreferredLanguage Hook
 
 The `usePreferredLanguage` hook is a custom React hook designed to facilitate the retrieval of the preferred language set by the user in their browser. It subscribes to language change events to keep track of any updates to the user's language preference.
 
@@ -13,7 +13,7 @@ The `usePreferredLanguage` hook is a custom React hook designed to facilitate th
 const usePreferredLanguage: () => string;
 ```
 
-#### Usage
+## Usage
 
 ```javascript
 const preferredLanguage = usePreferredLanguage();

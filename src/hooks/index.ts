@@ -13,3 +13,4 @@ export * from "./useCopyToClipboard";
 export * from "./useInterval";
 export * from "./useEvent";
 export * from "./useCounter";
+export * from "./useLockBodyScroll";

@@ -1,0 +1,27 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "tsconfig": "./tsconfig.json",
+    "entryPoints": [
+        "./src/hooks/**/*.ts"
+    ],
+    "out": "./typedoc",
+    "json": "./typedoc/hooks.json",
+    "exclude": [
+        "src/hooks/**/index.ts",
+        "src/hooks/**/__tests__/*",
+    ],
+    "externalPattern": [
+        "**/node_modules/**"
+    ],
+    "excludeExternals": true,
+    "plugin": [
+        "typedoc-plugin-mdn-links",
+        "typedoc-plugin-markdown",
+        "typedoc-plugin-missing-exports"
+    ],
+    "excludeInternal": true,
+    "excludeNotDocumented": true,
+    "placeInternalsInOwningModule": true,
+    "blockTags": ["@param", "@returns", "@see", "@example", "@template"],
+    "jsDocCompatibility": true,
+}

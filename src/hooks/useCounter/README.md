@@ -1,7 +1,7 @@
-## useCounter
+# useCounter
 Custom React hook for managing a counter with customizable minimum and maximum values.
 
-### Signature
+#### Signature
 ```typescript
 useCounter(
   initialValue?: number,
@@ -24,7 +24,7 @@ An array containing:
     - `reset`: Resets the counter to its initial value.
     - `set`: A function to directly set the counter value. respecting the minimum and maximum value if specified.
 
-### Usage
+## Usage
 
 ```tsx {0}
 const [count, { increment, decrement, reset }] = useCounter(0, { min: 0, max: 10 });

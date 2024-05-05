@@ -113,5 +113,5 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.json"
-  ]
+, "scripts/docs/hooks.utils.mjs", "scripts/docs/const.mjs"  ]
 }

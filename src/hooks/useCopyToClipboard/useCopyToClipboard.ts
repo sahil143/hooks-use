@@ -4,7 +4,7 @@ import * as React from "react";
  * A hook that copies text to clipboard [`Clipboard API`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
  * @returns {[string | null, (text: string) => Promise<boolean>]} An array containing the copied text and a function to copy text to clipboard
  */
-const useCopyToClipboard = (): [
+export const useCopyToClipboard = (): [
   string | null,
   (text: string) => Promise<boolean>,
 ] => {
@@ -30,5 +30,3 @@ const useCopyToClipboard = (): [
 
   return [copiedText, copyFn];
 };
-
-export default useCopyToClipboard;

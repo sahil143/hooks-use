@@ -23,8 +23,6 @@ const getLanguage = (): string => {
  * This hooks retrieves the preferred language set by the user in their browser
  * @returns {String} A string that contains the language selected in the browser
  */
-const usePreferredLanguage = (): string => {
+export const usePreferredLanguage = (): string => {
   return React.useSyncExternalStore(subscribeToLanguageChange, getLanguage);
 };
-
-export default usePreferredLanguage;
