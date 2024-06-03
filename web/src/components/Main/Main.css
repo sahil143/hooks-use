@@ -1,0 +1,8 @@
+.main {
+    grid-area: main;
+    background-color: var(--platinum);
+    color: var(--eerie-black);
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+}

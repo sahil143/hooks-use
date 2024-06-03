@@ -106,12 +106,13 @@
     "**/*.spec.(ts|tsx)",
     "**/stories/**/*",
     "**/*.stories.(ts|tsx)",
+    "**/web"
   ],
   "include": [
     "**/*.js",
     "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.json"
-, "scripts/docs/hooks.utils.mjs", "scripts/docs/const.mjs"  ]
+    "**/*.json",
+    ]
 }

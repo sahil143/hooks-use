@@ -1,0 +1,17 @@
+.link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--outer-space);
+    text-decoration: underline;
+  }
+}
+
+.link[data-selected="true"] {
+  background-color: var(--outer-space);
+}
