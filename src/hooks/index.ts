@@ -14,3 +14,4 @@ export * from "./useInterval";
 export * from "./useEvent";
 export * from "./useCounter";
 export * from "./useLockBodyScroll";
+export * from "./useQueue";
