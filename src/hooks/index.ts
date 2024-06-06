@@ -16,3 +16,4 @@ export * from "./useCounter";
 export * from "./useLockBodyScroll";
 export * from "./useQueue";
 export * from "./useTimeout";
+export * from "./useEventListener";
