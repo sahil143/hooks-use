@@ -18,3 +18,4 @@ export * from "./useQueue";
 export * from "./useTimeout";
 export * from "./useEventListener";
 export * from "./useWindowSize";
+export * from "./useVisibilityChange";

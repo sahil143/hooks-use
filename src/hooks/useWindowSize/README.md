@@ -1,4 +1,5 @@
 # useWindowSize
+
 A custom React hook that returns the updated height and width of the window on resize.
 
 #### Signature
@@ -9,7 +10,7 @@ const useWindowSize = (): { width: number; height: number };
 
 ## Usage
 
-```{1}
+```tsx {1}
   const { width, height } = useWindowSize();
 
   return (
