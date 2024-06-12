@@ -1,0 +1,8 @@
+const {getHooksList} = require('./utils.ts');
+
+module.exports = function () {
+    const hooks = getHooksList();
+  return `
+    export default ${hooks};
+  `
+};

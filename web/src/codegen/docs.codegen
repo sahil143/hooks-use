@@ -1,0 +1,8 @@
+const {getHooksContent} = require('./utils.ts');
+
+module.exports = function () {
+    const hooks = getHooksContent();
+  return `
+    export default ${JSON.stringify(hooks)};
+  `
+};

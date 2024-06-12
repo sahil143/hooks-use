@@ -69,5 +69,6 @@
       "prettier --write",
       "eslint"
     ]
-  }
+  },
+  "dependencies": {}
 }
